@@ -12,15 +12,13 @@ import java.util.UUID;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final UserMapper userMapper;
 
-    public UserService(UserRepository userRepository, UserMapper userMapper) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.userMapper = userMapper;
     }
 
     public UUID createUser(UserDto userDto) {
-        var user = userMapper.userDtoToUser(userDto);
+        var user = UserMapper.INSTANCE.userDtoToUser(userDto);
         user.setRole(UserRole.USER);
         userRepository.save(user);
         return user.getId();
