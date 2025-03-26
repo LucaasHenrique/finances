@@ -2,7 +2,7 @@ package com.br.springBank.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record UserDto(@NotBlank(message = "nome não pode ser null") String name,
-                      @NotBlank String email,
-                      @NotBlank String password) {
+public record UserDto(@NotBlank(message = "nome não pode ser vazio") String name,
+                      @NotBlank(message = "email não pode ser vazio") String email,
+                      @NotBlank(message = "nome não pode ser vazio") String password) {
 }
