@@ -4,7 +4,6 @@ import com.br.springBank.model.types.AccountType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
