@@ -34,8 +34,9 @@ public class User implements Serializable {
     private List<Category> categorys;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<BankAccount> account;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "wallet_id")
+    private Wallet wallet;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -105,12 +106,12 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    public List<BankAccount> getAccount() {
-        return account;
+    public Wallet getAccount() {
+        return wallet;
     }
 
-    public void setAccount(List<BankAccount> account) {
-        this.account = account;
+    public void setWallet(Wallet wallet) {
+        this.wallet = wallet;
     }
 
     public List<Transaction> getTransactions() {
@@ -120,5 +121,4 @@ public class User implements Serializable {
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
     }
-
 }

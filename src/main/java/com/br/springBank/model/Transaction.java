@@ -34,7 +34,7 @@ public class Transaction implements Serializable {
 
     @ManyToOne()
     @JoinColumn(name = "bankaccount_id")
-    private BankAccount account;
+    private Wallet account;
 
     public Instant getCreationTimestamp() {
         return creationTimestamp;
@@ -68,11 +68,11 @@ public class Transaction implements Serializable {
         this.user = user;
     }
 
-    public BankAccount getAccount() {
+    public Wallet getAccount() {
         return account;
     }
 
-    public void setAccount(BankAccount account) {
+    public void setAccount(Wallet account) {
         this.account = account;
     }
 

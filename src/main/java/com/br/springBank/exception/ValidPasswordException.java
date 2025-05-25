@@ -1,4 +1,7 @@
 package com.br.springBank.exception;
 
-public class ValidPasswordException {
+public class ValidPasswordException extends RuntimeException {
+    public ValidPasswordException(String message) {
+        super(message);
+    }
 }
